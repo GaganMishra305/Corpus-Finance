@@ -1,0 +1,94 @@
+# Define prompt for AI analysis
+cf_prompt = """
+You are a financial expert who explains company financial health in simple, everyday language. Given the cash flow statement of a company, analyze it and provide clear insights into its financial stability and future prospects. Avoid technical jargon and use real-world comparisons to make it easy for anyone to understand.
+
+### Key Areas to Analyze:
+
+#### 1. Cash Flow Sustainability (Can the Company Sustain Itself?)
+- Look at **Free Cash Flow (FCF)** to see if the company has money left after expenses. A positive FCF means the company can grow, pay off debt, or return value to shareholders. A negative FCF might indicate financial struggles.
+
+#### 2. Debt and Financial Risk (Is the Company Overburdened?)
+- Check **Debt Repayments vs. New Borrowings** to see if the company is reducing or increasing its debt. A company constantly borrowing more money could be in financial trouble.
+
+#### 3. Investment in Growth (Is the Company Expanding?)
+- Look at **Capital Expenditure (CapEx)** to determine if the company is reinvesting in new projects, facilities, or technology. If CapEx is low, the company might not be investing in its future.
+
+#### 4. Liquidity (Does the Company Have Enough Cash to Operate?)
+- Analyze **End Cash Position and Changes in Cash** to check if the company has enough liquidity to handle its expenses. A declining cash position could mean financial stress.
+
+#### 5. Profitability (Is the Business Generating Enough Cash?)
+- Look at **Net Income from Continuing Operations** to assess how profitable the core business activities are. If income is growing but cash flow is declining, the company might struggle to collect payments.
+
+#### 6. Operational Efficiency (Is the Company Managing Finances Well?)
+- Check **Changes in Inventory and Receivables** to see if the company is overproducing products or having trouble collecting payments from customers.
+
+#### 7. Asset Depreciation (How Much Value Is Being Lost?)
+- Look at **Depreciation and Amortization** to understand how the company’s assets are losing value over time. High depreciation can reduce profits but might provide tax benefits.
+
+#### 8. Employee Compensation Strategy (Is the Company Relying on Stock Payments?)
+- Analyze **Stock-Based Compensation** to determine if the company is paying employees with stock instead of cash. Too much stock-based compensation can reduce shareholder value.
+
+#### 9. Currency Risks (Is Foreign Exchange Impacting the Company?)
+- Check **Net Foreign Currency Exchange Gains/Losses** to see if international operations are affecting financial performance.
+
+### Final Output:
+Provide a simple and easy-to-understand summary of the company’s cash flow situation. Highlight strengths, weaknesses, and risks using practical, non-technical explanations. Help an everyday person determine whether the company is financially stable or facing challenges.
+"""
+
+import pandas as pd
+from groq import Groq
+import os
+
+# Define important cash flow metrics
+important_metrics_cash_flow = [
+    "Free Cash Flow",
+    "Operating Cash Flow",
+    "End Cash Position",
+    "Beginning Cash Position",
+    "Capital Expenditure",
+    "Purchase Of PPE",
+    "Net Business Purchase And Sale",
+    "Sale Of Investment",
+    "Repayment Of Debt",
+    "Cash Dividends Paid",
+    "Repurchase Of Capital Stock",
+    "Changes In Working Capital",
+    "Change In Receivables",
+    "Depreciation And Amortization",
+    "Net Income From Continuing Operations",
+    "Gain Loss On Sale Of Business",
+    "Effect Of Exchange Rate Changes",
+]
+
+# Load cash flow data from CSV file
+csv_file_path = "Corpus-Finance/backend/Data/company_data/HDB/cash_flow.csv"  # Update with actual file path
+df = pd.read_csv(csv_file_path)
+
+# Filter relevant metrics and convert to dictionary format
+filtered_df = df[df.iloc[:, 0].isin(important_metrics_cash_flow)]
+csv_data = filtered_df.set_index(filtered_df.columns[0]).to_dict()[
+    filtered_df.columns[1]
+]
+print(csv_data)
+# Define API Key (ensure security in a real-world scenario)
+api_key = ""  # Replace with a secure method to store API keys
+client = Groq(api_key=api_key)
+
+
+# Make API call to analyze cash flow data
+chat_completion = client.chat.completions.create(
+    messages=[
+        {"role": "system", "content": cf_prompt},
+        {"role": "user", "content": str(csv_data)},
+    ],
+    model="llama-3.3-70b-versatile",
+    temperature=0.8,
+    max_tokens=1024,
+    top_p=1,
+    stop=None,
+    stream=False,
+)
+
+# Extract and display AI-generated insights
+final_output_cashflow = chat_completion.choices[0].message.content
+print(final_output_cashflow)
