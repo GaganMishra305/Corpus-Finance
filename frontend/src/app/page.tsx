@@ -15,7 +15,6 @@ import {
 import ImageSlider from "@/components/image-slider"
 import ContentModal from "@/components/content-modal"
 import { useTheme } from "next-themes"
-import { cn } from "@/lib/utils"
 
 // Define message type
 type Message = {
@@ -194,7 +193,7 @@ export default function ChatPage() {
       // Determine the endpoint based on type
       const endpoint = type === "story" 
         ? `https://corpus-finance.onrender.com/api/story/${selectedCompany}`
-        : `https://corpus-finance.onrender.com/api/artical/${selectedCompany}`;
+        : `https://corpus-finance.onrender.com/api/article/${selectedCompany}`;
         
       const response = await fetch(endpoint);
       
