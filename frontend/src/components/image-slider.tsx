@@ -36,11 +36,10 @@ export default function ImageSlider({ images }: ImageSliderProps) {
 
       <div className="flex-1 relative flex items-center justify-center p-4">
         <div className="relative w-full h-full">
-          <Image
+          <img
             src={images[currentIndex] || "/placeholder.svg?height=400&width=400"}
             alt={`Image ${currentIndex + 1}`}
-            className="object-contain"
-            fill
+            className="object-contain fill-current md:w-[70%] w-[90%]"
           />
         </div>
 
