@@ -1,12 +1,5 @@
 # Corpus Finance
 
-## DUE TO UNFORESEEN CORS ERROR: 
-1. The [backend](https://corpus-finance.onrender.com/) and [frontend](https://corpus-finance.vercel.app/) integration did not come to fruition (due to limited time).
-2. Please look into the "Data" folder for the extracted data of companies.
-3. Please look into the "Analysis" folder for the for the NLP-extracted insights.
-4. Please look into the "Stories" folder for seeing the LLM-gneerated stories.
-5. Finally, please look into "Notebook" for the research portion
-
 ## Overview
 Corpus Finance is a comprehensive financial analysis platform that provides detailed insights into company statistics, market trends, and future forecasts. By integrating cutting-edge AI models and speech interaction, the project offers an interactive and intelligent experience for users to discuss and explore financial data.
 
