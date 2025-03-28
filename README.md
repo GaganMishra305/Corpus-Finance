@@ -1,17 +1,5 @@
 # Corpus Finance
 
-![Project Logo](Replace-with-your-project-logo-path)
-
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture & Illustrations](#architecture--illustrations)
-- [Installation & Setup](#installation--setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## Overview
 Corpus Finance is a comprehensive financial analysis platform that provides detailed insights into company statistics, market trends, and future forecasts. By integrating cutting-edge AI models and speech interaction, the project offers an interactive and intelligent experience for users to discuss and explore financial data.
 
