@@ -195,7 +195,14 @@ export default function ChatPage() {
         ? `https://corpus-finance.onrender.com/api/story/${selectedCompany}`
         : `https://corpus-finance.onrender.com/api/article/${selectedCompany}`;
         
-      const response = await fetch(endpoint);
+      const response = await fetch(
+        endpoint, 
+        {
+            method: "POST",
+            body: "",
+          }
+      );
+      console.log(response)
       
       if (!response.ok) {
         throw new Error(`Failed to fetch ${type}: ${response.statusText}`);
