@@ -1,9 +1,24 @@
 from fastapi import FastAPI
-from src.Routers import assessment, quiz_bot, tutor_bot, doubt_bot, recommend, v2
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from src.Routers import viz, story, chat, article
 
 app = FastAPI(title='AIFinance', version='1.0.0')
 
-@app.get("/" , description='Health check route')
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For development - restrict in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+@app.get("/", description='Health check route')
 async def health_check():
     return {"status": "healthy"}
 
+# Include all routers
+app.include_router(chat.router, prefix="/api")
+app.include_router(story.router, prefix='/api')
+app.include_router(viz.router, prefix="/api")
+app.include_router(article.router, prefix="/api")

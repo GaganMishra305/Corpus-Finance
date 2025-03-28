@@ -3,11 +3,11 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-def get_finance_education_resources(api_key, cx, query, num=10):
+def get_finance_education_resources(query, num=10):
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
-        "key": api_key,
-        "cx": cx,
+        "key": os.getenv("API_KEY"),
+        "cx": os.getenv("CX"),
         "q": query,
         "num": num  
     }

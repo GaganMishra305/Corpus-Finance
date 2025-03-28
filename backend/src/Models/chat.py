@@ -6,4 +6,5 @@ class ChatMessage(BaseModel):
     content: str
 
 class ChatHistory(BaseModel):
+    company: Literal['HDB', 'INFY', 'LICI.NS']
     messages: List[ChatMessage]
