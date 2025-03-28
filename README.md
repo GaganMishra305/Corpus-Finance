@@ -1,102 +1,95 @@
-# Corpus-Finance
+# Corpus Finance
 
-Corpus Finance is an innovative project that transforms complex financial data into actionable insights through both interactive visualizations and engaging narrative storytelling. By leveraging corpus-based analysis, the project not only processes and analyzes financial documents using Jupyter Notebooks and Python but also converts the results into easy-to-understand, compelling stories using a custom script. These stories, alongside dynamic charts and dashboards, help investors and analysts quickly grasp a company’s performance, challenges, and future outlook.
+![Project Logo](Replace-with-your-project-logo-path)
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture & Illustrations](#architecture--illustrations)
+- [Installation & Setup](#installation--setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Overview
+Corpus Finance is a comprehensive financial analysis platform that provides detailed insights into company statistics, market trends, and future forecasts. By integrating cutting-edge AI models and speech interaction, the project offers an interactive and intelligent experience for users to discuss and explore financial data.
+
+### Key Highlights:
+- **End-to-End Analysis:** Complete story-based evaluation of companies.
+- **Interactive AI:** Utilizes advanced LLMs for natural language queries and dynamic responses.
+- **Speech Integration:** Seamless voice interaction powered by speech-to-text and text-to-speech APIs.
+- **Hybrid AI Models:** Leverages Llama 70B for generating financial insights and Gemini AI for data-driven interactions.
 
 ## Features
+### Company Analysis Story
+A narrative-driven approach to analyze company statistics, covering historical performance and future projections.
 
-- **Financial Data Analysis:**  
-  Analyze financial documents, news articles, reports, and more using corpus-based techniques. The backend processes and organizes data from balance sheets, cash flows, financial statements, and key statistics.
+### Speech-Enabled Interactions
+Engage with the platform using voice commands for a hands-free experience.
 
-- **Compelling Story Generation:**  
-  Generate engaging company stories that explain a company’s journey—from its early success and rapid growth to its challenges and future outlook. The integrated `story.py` script leverages a detailed storytelling prompt and a Groq API call to convert complex financial data into a clear, narrative format.
+### Advanced AI Integration
+- **Llama 70B:** Provides versatile, prompt-based analysis.
+- **Gemini AI:** Interacts with the underlying data to answer queries and provide real-time insights.
 
-- **Interactive Visualizations:**  
-  The frontend provides dynamic charts and dashboards to help you explore and interpret the analysis results.
+### Real-Time Data Processing
+Offers updated and accurate information for dynamic financial analysis.
 
-## Project Structure
+### Customizable Dashboard
+A user-friendly interface that lets you visualize data through charts, graphs, and interactive modules.
 
-While the backend provides the core functionality, the frontend (currently minimal) is planned to evolve into a full-featured user interface for interacting with the processed data.
+## Architecture & Illustrations
+### System Architecture
+The platform integrates multiple components that work together seamlessly:
 
-## Features
+- **Data Ingestion:** Fetches and processes financial data in real time.
+- **AI Processing:** Uses Llama 70B for natural language processing and Gemini AI for querying the dataset.
+- **Speech Interaction Module:** Implements speech-to-text conversion for commands and text-to-speech for responses.
+- **Web Interface:** A responsive dashboard that presents the analysis, reports, and visualizations.
 
-- **Backend:**
-  - Organized data and analysis directories (Data, Notebook, Prompts, analysis, src)
-  - A main application file (`App.py`) to launch the backend server
-  - Environment variable management via a `.env` file
-  - Dependency management through `requirements.txt`
-- **Frontend:**
-  - Starter setup with initial configuration files
-  - Ready for future integration of interactive visualization and user interaction components
+![System Architecture](Replace-with-your-architecture-diagram-path)
 
-## Project Structure
+### Workflow Illustration
+Below is a flowchart representing the user interaction process:
 
-```
-Corpus-Finance/
-├── backend/
-│   ├── Data/             # Contains raw and processed datasets
-│   ├── Notebook/         # Jupyter notebooks for exploratory data analysis
-│   ├── Prompts/          # Prompts for NLP or query-related tasks
-│   ├── analysis/         # Analysis scripts and utilities
-│   ├── src/              # Core source code for backend functionalities
-│   ├── App.py            # Main application entry point
-│   ├── requirements.txt  # Python dependencies list
-│   ├── .env              # Environment configuration (ensure to create or update as needed)
-│   └── .gitignore        # Files to ignore in Git
-└── frontend/
-    └── .gitignore        # Frontend Git ignore file (more files to be added as development progresses)
+```mermaid
+flowchart TD
+    A[User Interaction] --> B[Speech/Text Input]
+    B --> C[Natural Language Processing]
+    C --> D[Llama 70B Analysis]
+    D --> E[Data Query with Gemini AI]
+    E --> F[Real-Time Financial Insights]
+    F --> G[Display on Dashboard]
 ```
 
-## Installation
+## Installation & Setup
+Follow these steps to set up Corpus Finance on your local machine:
 
-### Backend Setup
+### Clone the Repository
+```sh
+git clone https://github.com/GaganMishra305/Corpus-Finance.git
+cd Corpus-Finance
+```
 
-1. **Clone the repository:**
+### Install Dependencies
+Ensure you have Python installed, then run:
+```sh
+pip install -r requirements.txt
+```
 
-   ```bash
-   git clone https://github.com/GaganMishra305/Corpus-Finance.git
-   cd Corpus-Finance/backend
-   ```
+### Configure Environment
+- Set up your API keys and configuration parameters in the `.env` file.
+- Update the configuration files as needed to point to your data sources.
 
-2. **Create and activate a virtual environment:**
+### Interact via Speech
+Use your microphone to ask questions about company performance, forecasts, or any financial metric.
 
-   - On macOS/Linux:
+### Explore the Dashboard
+Navigate through various sections, including statistical reports, analysis stories, and data visualizations.
 
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-
-   - On Windows:
-
-     ```bash
-     python -m venv venv
-     venv\Scripts\activate
-     ```
-
-3. **Install dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure Environment Variables:**
-
-   - Create a `.env` file in the backend folder (if not already present) and add necessary configuration variables (e.g., API keys, database URIs). You may refer to a sample `.env.example` if available.
-
-5. **Run the Application:**
-
-   ```bash
-   python App.py
-   ```
-
-### Frontend Setup
-
-- Currently, the frontend is in an early stage of development. As more files and features are added:
-  1. Navigate to the `frontend` folder.
-  2. Follow the setup instructions (to be updated) when a build process or package management (such as npm or yarn) is integrated.
+### Engage with AI
+Ask for detailed narratives, future projections, and step-by-step insights powered by Llama 70B and Gemini AI.
 
 ## License
-
-This project is licensed under the [MIT License](LICENSE) – feel free to use and modify it according to your needs.
-
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+ 
